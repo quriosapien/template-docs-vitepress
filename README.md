@@ -2,6 +2,15 @@
 
 A reusable documentation site template built with [VitePress](https://vitepress.dev).
 
+> [!NOTE]
+> This template tracks the VitePress 2 pre-release line. VitePress 1.6.4 — the
+> last stable release, from August 2025 — pins Vite 5, which carries an
+> unfixable high-severity path-traversal advisory in its dev server
+> ([GHSA-67mh-4wv8-2f99](https://github.com/advisories/GHSA-67mh-4wv8-2f99) and
+> related). Forcing a newer Vite via `overrides` does not work: VitePress 1.x
+> calls `transformWithEsbuild`, which Vite 8 removed. VitePress 2 runs on Vite 8
+> and audits clean. Move to `^2.0.0` once it ships stable.
+
 ## Prerequisites
 
 - Node.js 26 or later
