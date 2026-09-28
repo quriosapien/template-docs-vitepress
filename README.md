@@ -12,12 +12,13 @@ A reusable documentation site template built with [VitePress](https://vitepress.
 > related). Forcing a newer Vite via `overrides` does not work: VitePress 1.x
 > calls `transformWithEsbuild`, which Vite 8 removed. VitePress 2 runs on Vite 8
 > (via `2.0.0-alpha.20`) and `npm audit` is clean. Re-checked during the
-> 2026-09-20 weekly dependency pass — `2.0.0-alpha.20` is still the newest
+> 2026-09-28 weekly dependency pass — `2.0.0-alpha.20` is still the newest
 > alpha and the build still works. Move to `^2.0.0` once it ships stable.
 
 ## Prerequisites
 
 - Node.js 26 or later
+- npm >= 12. Node 26 bundles npm 11, so run `npm install -g npm@12` once per Node install. Enforced by `devEngines`: on an older Node or npm, npm commands fail with `EBADDEVENGINES`.
 
 ## Commands
 
