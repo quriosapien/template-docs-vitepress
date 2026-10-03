@@ -2,7 +2,7 @@
 defineProps({
   label: {
     type: String,
-    default: "Beta",
+    default: 'Beta',
   },
 });
 </script>

@@ -12,7 +12,7 @@ A reusable documentation site template built with [VitePress](https://vitepress.
 > related). Forcing a newer Vite via `overrides` does not work: VitePress 1.x
 > calls `transformWithEsbuild`, which Vite 8 removed. VitePress 2 runs on Vite 8
 > (via `2.0.0-alpha.20`) and `npm audit` is clean. Re-checked during the
-> 2026-09-28 weekly dependency pass — `2.0.0-alpha.20` is still the newest
+> 2026-10-03 weekly dependency pass — `2.0.0-alpha.20` is still the newest
 > alpha and the build still works. Move to `^2.0.0` once it ships stable.
 
 ## Prerequisites
@@ -23,11 +23,17 @@ A reusable documentation site template built with [VitePress](https://vitepress.
 ## Commands
 
 ```sh
-npm i                 # install dependencies
+npm i                 # install dependencies + git hooks (lefthook)
 npm run docs:dev     # start local dev server
 npm run docs:build   # build for production
 npm run docs:preview # preview the production build
+npm run lint         # Biome check (lint + format + import order)
+npm run lint:fix     # Biome check with autofix
 ```
+
+[Biome](https://biomejs.dev) (a single Rust binary) lints and formats the config, theme and
+components, the same way as the other `template-*` repos. A lefthook pre-commit hook runs it on
+staged files. Markdown under `content/` isn't touched by it.
 
 ## Structure
 
