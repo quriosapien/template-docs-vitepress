@@ -12,7 +12,7 @@ A reusable documentation site template built with [VitePress](https://vitepress.
 > related). Forcing a newer Vite via `overrides` does not work: VitePress 1.x
 > calls `transformWithEsbuild`, which Vite 8 removed. VitePress 2 runs on Vite 8
 > (via `2.0.0-alpha.20`) and `npm audit` is clean. Re-checked during the
-> 2026-10-03 weekly dependency pass — `2.0.0-alpha.20` is still the newest
+> 2026-10-10 weekly dependency pass — `2.0.0-alpha.20` is still the newest
 > alpha and the build still works. Move to `^2.0.0` once it ships stable.
 
 ## Prerequisites
