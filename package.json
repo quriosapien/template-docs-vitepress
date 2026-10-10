@@ -29,11 +29,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
-    "lefthook": "^2.1.16",
+    "lefthook": "^2.2.1",
     "vitepress": "^2.0.0-alpha.20"
   },
   "allowScripts": {
     "fsevents@2.3.3": true,
-    "lefthook@2.1.16": true
+    "lefthook@2.2.1": true
   }
 }
