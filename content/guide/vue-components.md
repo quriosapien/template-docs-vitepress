@@ -15,12 +15,12 @@ Components registered in the custom theme (`.vitepress/theme/index.ts`) are avai
 To add your own, drop a `.vue` file in `.vitepress/theme/components/` and register it in `.vitepress/theme/index.ts`:
 
 ```ts
-import Counter from "./components/Counter.vue";
+import Counter from './components/Counter.vue';
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    app.component("Counter", Counter);
+    app.component('Counter', Counter);
   },
 };
 ```
