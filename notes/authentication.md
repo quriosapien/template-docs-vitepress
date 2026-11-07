@@ -20,11 +20,11 @@ Pick an approach based on:
 
 1. **Where this will be hosted** — the best option differs a lot by platform.
 2. **How strong the protection needs to be**:
-   - *Soft gate* (shared password) — quick, deters casual visitors, not
+   - _Soft gate_ (shared password) — quick, deters casual visitors, not
      cryptographically secure.
-   - *Real per-user login* — proper access control (Google/GitHub/company
+   - _Real per-user login_ — proper access control (Google/GitHub/company
      IdP), enforced before a request ever reaches page content.
-   - *Network-level restriction* — IP allowlist / VPN only, no login UI.
+   - _Network-level restriction_ — IP allowlist / VPN only, no login UI.
 
 ## Recommended default for this template: Cloudflare Pages + Cloudflare Access
 
@@ -40,7 +40,7 @@ way to get **real per-user SSO with zero application code**:
 - Every push to the default branch auto-builds and deploys; PRs get preview URLs.
 - Free for static hosting — unlimited bandwidth/requests, generous free
   build-minutes allowance.
-- Note: as of 2026 Cloudflare's default recommendation for *brand-new* projects
+- Note: as of 2026 Cloudflare's default recommendation for _brand-new_ projects
   is "Workers with static assets" (its newer unified model, useful if you'll add
   backend/API logic later). Pages has no sunset date and is still the simplest
   path for a pure static docs site — switch to Workers only if you outgrow it.
@@ -62,7 +62,7 @@ way to get **real per-user SSO with zero application code**:
   served — a real security boundary, not a client-side veneer.
 - Free for up to 50 users; $7/user/month pay-as-you-go beyond that with no cap.
 
-This combination is called out as the default *because* no hosting platform was
+This combination is called out as the default _because_ no hosting platform was
 decided yet for this template and it requires the least ongoing maintenance —
 not because it's the only correct choice. See the next section for other
 platforms and the self-hosted worked example for when Cloudflare isn't an option.
@@ -77,12 +77,12 @@ Render, Fly.io, and others), each with their own auth story. Apply the same
 land on — hosting platform and auth mechanism are a joint decision, not two
 independent ones.
 
-| Hosting | Options |
-|---|---|
-| **Cloudflare Pages** | Cloudflare Access (free tier) — edge-level email OTP or SSO login, minimal setup, no app code changes. See the recommended-default section above for the full flow. |
-| **Netlify** | Paid Password Protection add-on, Netlify Identity, or a custom Netlify Edge Function that checks a session before serving content. |
-| **Vercel** | Built-in Password Protection (Pro plan), or custom Vercel Middleware that validates a session/JWT before letting the request through. |
-| **Self-hosted (nginx/Docker)** | `nginx auth_basic` for a quick shared-password gate, or **oauth2-proxy** in front of the static file server for real per-user SSO (Google, GitHub, or any generic OIDC provider) without writing custom auth code. |
+| Hosting                                                                | Options                                                                                                                                                                                                                               |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Cloudflare Pages**                                                   | Cloudflare Access (free tier) — edge-level email OTP or SSO login, minimal setup, no app code changes. See the recommended-default section above for the full flow.                                                                   |
+| **Netlify**                                                            | Paid Password Protection add-on, Netlify Identity, or a custom Netlify Edge Function that checks a session before serving content.                                                                                                    |
+| **Vercel**                                                             | Built-in Password Protection (Pro plan), or custom Vercel Middleware that validates a session/JWT before letting the request through.                                                                                                 |
+| **Self-hosted (nginx/Docker)**                                         | `nginx auth_basic` for a quick shared-password gate, or **oauth2-proxy** in front of the static file server for real per-user SSO (Google, GitHub, or any generic OIDC provider) without writing custom auth code.                    |
 | **Anything else** (GitHub/GitLab Pages, S3+CloudFront, Firebase, etc.) | These typically don't have a built-in access-control layer — pair them with an edge/CDN-level auth product (e.g. a CloudFront Function + Lambda@Edge for AWS) or fall back to a reverse-proxy pattern like the self-hosted one below. |
 
 ## Worked example: self-hosted + real SSO (Google Workspace)
